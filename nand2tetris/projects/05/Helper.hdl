@@ -1,0 +1,22 @@
+CHIP Helper{
+
+    IN A[16];
+    OUT out[15];
+
+    PARTS:
+    Or(a=A[0], b=false, out=out[0]);
+    Or(a=A[1], b=false, out=out[1]);
+    Or(a=A[2], b=false, out=out[2]);
+    Or(a=A[3], b=false, out=out[3]);
+    Or(a=A[4], b=false, out=out[4]);
+    Or(a=A[5], b=false, out=out[5]);
+    Or(a=A[6], b=false, out=out[6]);
+    Or(a=A[7], b=false, out=out[7]);
+    Or(a=A[8], b=false, out=out[8]);
+    Or(a=A[9], b=false, out=out[9]);
+    Or(a=A[10], b=false, out=out[10]);
+    Or(a=A[11], b=false, out=out[11]);
+    Or(a=A[12], b=false, out=out[12]);
+    Or(a=A[13], b=false, out=out[13]);
+    Or(a=A[14], b=false, out=out[14]);
+}
