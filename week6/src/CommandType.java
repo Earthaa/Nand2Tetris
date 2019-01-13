@@ -1,0 +1,3 @@
+enum CommandType{
+    C_COMMAND,A_COMMAND,LABEL,COMMENT;
+}
