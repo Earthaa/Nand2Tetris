@@ -5,9 +5,10 @@ public class WriteCode {
     private FileWriter fileWriter;
     private int lineNum; //Always point to the last line
     WriteCode(String name) throws Exception{
-        String[] tmp = name.split("/");
-        fileName = tmp[tmp.length - 1].split("[.]")[0];
-        fileWriter = new FileWriter(fileName+".asm");
+        String[] tmp = name.split("[/]");
+        String dir = tmp[0];
+        fileName = tmp[1].split("[.]")[0];
+        fileWriter = new FileWriter(new File(dir,fileName+".asm"));
         lineNum = -1;
     }
     private void writeCompare(String command) throws Exception{

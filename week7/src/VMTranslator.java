@@ -1,6 +1,7 @@
 public class VMTranslator {
     public static void main(String args[]) throws Exception{
         Parser parser = new Parser(args[0]);
+        //String[] tmp = args[0].split("/");
         WriteCode writer = new WriteCode(args[0]);
         while (parser.hasMoreCommands()){
             parser.advance();

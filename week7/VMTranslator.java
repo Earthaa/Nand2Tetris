@@ -1,5 +1,6 @@
 public class VMTranslator {
     public static void main(String args[]) throws Exception{
+        System.out.println("Input File is: " + args[0]);
         Parser parser = new Parser(args[0]);
         WriteCode writer = new WriteCode(args[0]);
         while (parser.hasMoreCommands()){
