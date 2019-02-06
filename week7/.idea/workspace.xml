@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9a6904e-c31c-4f9c-ba36-3c0e47f19ca0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../nand2tetris/projects/07/StackArithmetic/StackTest/prev.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nand2tetris/tools/bin/CPU Emulator.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../nand2tetris/tools/bin/CPU Emulator.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StackTest.vm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VMTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/VMTranslator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WriteCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/WriteCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project7.zip" beforeDir="false" afterPath="$PROJECT_DIR$/project7.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PointerTest.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StaticTest.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VMTranslator.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/VMTranslator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VMTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VMTranslator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WriteCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/WriteCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WriteCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WriteCode.java" afterDir="false" />
-    </list>
+    <list default="true" id="d9a6904e-c31c-4f9c-ba36-3c0e47f19ca0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +13,7 @@
     <session id="275542291">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="2" />
@@ -136,8 +122,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-20" />
-    <option name="y" value="23" />
+    <option name="x" value="279" />
+    <option name="y" value="89" />
     <option name="width" value="1356" />
     <option name="height" value="822" />
   </component>
@@ -205,15 +191,15 @@
       <workItem from="1548969578702" duration="411000" />
       <workItem from="1549000179675" duration="7850000" />
       <workItem from="1549009671951" duration="179000" />
-      <workItem from="1549048787290" duration="707000" />
+      <workItem from="1549048787290" duration="751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27623000" />
+    <option name="totallyTimeSpent" value="27667000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-20" y="23" width="1356" height="822" extended-state="0" />
+    <frame x="279" y="89" width="1356" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19025876" />
