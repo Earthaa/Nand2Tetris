@@ -63,7 +63,7 @@ public class WriteCode {
                 writeCompare("eq");
             }
             else if(command.equals("gt")){
-               writeCompare("gt");
+                writeCompare("gt");
             }
             else if(command.equals("lt")){
                 writeCompare("lt");
@@ -235,3 +235,5 @@ public class WriteCode {
         fileWriter.close();
     }
 }
+
+

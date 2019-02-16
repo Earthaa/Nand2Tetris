@@ -34,7 +34,7 @@ public class Parser {
                 firstPart.equals("eq") || firstPart.equals("lt") || firstPart.equals("and") ||
                 firstPart.equals("or") || firstPart.equals("not") || firstPart.equals("gt"))
             return CommandType.C_ARITHMETIC;
-        //If not C_ARITHETIC then do parsing to the first part
+            //If not C_ARITHETIC then do parsing to the first part
         else if(type.equals("push") )
             return CommandType.C_PUSH;
         else if(type.equals("pop") )
