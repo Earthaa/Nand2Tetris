@@ -15,6 +15,13 @@ public class VMTranslator {
                 writer.writeGoto(parser.getCurrrentCommand());
             else if(parser.getCurrentType() == CommandType.C_IF)
                 writer.writeIf(parser.getCurrrentCommand());
+            else if(parser.getCurrentType() == CommandType.C_FUNCTION)
+                writer.writeFunction(parser.getCurrrentCommand());
+            else if(parser.getCurrentType() == CommandType.C_RETURN)
+                writer.writeReturn(parser.getCurrrentCommand());
+            else if(parser.getCurrentType() == CommandType.C_CALL)
+                writer.writeCall(parser.getCurrrentCommand());
+
         }
         writer.close();
     }

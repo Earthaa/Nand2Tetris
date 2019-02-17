@@ -83,6 +83,7 @@ public class WriteCode {
     }
     public void writePushPop(String command) throws Exception{
         fileWriter.write("//"+" " + command + '\n');
+
         String[] splited = command.split(" ");
         String comm = splited[0];
         String field = splited[1];
@@ -230,6 +231,129 @@ public class WriteCode {
         fileWriter.write("@" + label + "\n");
         fileWriter.write("D;JNE" + "\n");
         lineNum+=6;
+    }
+    public void writeFunction(String command) throws Exception{
+        fileWriter.write("// " + command + "\n");
+        String[] function = command.split(" ");
+        String functionName = function[1];
+        String argsNum = function[2];
+        fileWriter.write("("+functionName+")"+"\n");
+        for(int i = 0; i < Integer.parseInt(argsNum); i++){
+            writePushPop("push constant 0");
+        }
+    }
+    public void writeReturn(String command) throws Exception{
+        //Frame = LCL
+        fileWriter.write("// " + command + "\n");
+        fileWriter.write("@LCL" + "\n");
+        fileWriter.write("D=M" + "\n");
+        fileWriter.write("@FRAME" + "\n");
+        fileWriter.write("M=D" + "\n");
+        lineNum += 4;
+        //RET = *(FRAME-5)
+        writeFrame(5,"RET");
+        //*ARG = pop()
+        writePushPop("pop argument 0");
+        // SP = ARG+1
+        fileWriter.write("@ARG" + "\n");
+        fileWriter.write("D=M" + "\n");
+        fileWriter.write("@SP" + "\n");
+        fileWriter.write("M=D+1" + "\n");
+        lineNum+=4;
+        //THAT = *(FRAME-1)
+        writeFrame(1,"THAT");
+        //THIS = *(FRAME-2)
+        writeFrame(2,"THIS");
+        //ARG = *(FRAME-3)
+        writeFrame(3,"ARG");
+        //LCL = *(FRAME-4)
+        writeFrame(4,"LCL");
+        fileWriter.write("@RET"+"\n");
+        fileWriter.write("A=M"+"\n");
+        fileWriter.write("0;JMP"+"\n");
+        lineNum+=3;
+    }
+    private void writeFrame(int n, String pointer) throws Exception{
+        /*   pointer = *(FRAME - n)
+        * */
+        //Do with set FRAME - n
+        fileWriter.write("@FRAME" + "\n");
+        //fileWriter.write("A=M"+"\n");
+        fileWriter.write("D=M"+"\n");
+        fileWriter.write("@R13"+"\n");
+        fileWriter.write("M=D"+"\n");
+        fileWriter.write("@"+Integer.toString(n)+"\n");
+        fileWriter.write("D=A"+"\n");
+        fileWriter.write("@R13"+"\n");//lineNum + 8
+        fileWriter.write("M=M-1"+"\n");
+        fileWriter.write("@"+Integer.toString(lineNum + 7) + "\n");
+        fileWriter.write("D=D-1;JGT"+"\n");
+        //Do with set pointer
+        fileWriter.write("@R13"+"\n");
+        fileWriter.write("A=M"+"\n");
+        fileWriter.write("D=M"+"\n");
+        fileWriter.write("@"+pointer+"\n");
+        fileWriter.write("M=D"+"\n");
+        lineNum += 15;
+    }
+    public void writeCall(String command) throws Exception{
+        fileWriter.write("//" + command + "\n");
+        String[] call = command.split(" ");
+        String n = call[2];
+        String function = call[1];
+        //Save sp
+        fileWriter.write("@SP" + "\n");
+        fileWriter.write("D=M" + "\n");
+        fileWriter.write("@R14" + "\n");
+        fileWriter.write("M=D" + "\n");
+        lineNum += 4;
+        //push return-address
+        fileWriter.write("@" + Integer.toString(lineNum + 54) + "\n");
+        fileWriter.write("D=A" + "\n");
+        fileWriter.write("@SP" + "\n");
+        fileWriter.write("A=M" + "\n");
+        fileWriter.write("M=D" + "\n");
+        fileWriter.write("@SP" + "\n");
+        fileWriter.write("M=M+1" + "\n");
+        lineNum+=7;
+        //push pointer
+        pushPointer("LCL");
+        pushPointer("ARG");
+        pushPointer("THIS");
+        pushPointer("THAT");
+        lineNum += 28;
+        //ARG =SP - n - 5 which is saved in R14
+        fileWriter.write("@" + n + "\n");
+        fileWriter.write("D=A" + "\n");
+        fileWriter.write("@" + Integer.toString(lineNum + 9) + "\n");
+        fileWriter.write("D=D-1;JLT" + "\n");
+        fileWriter.write("@R14" + "\n");
+        fileWriter.write("M=M-1" + "\n");
+        fileWriter.write("@" + Integer.toString(lineNum + 3) + "\n");
+        fileWriter.write("0;JMP" + "\n");
+        fileWriter.write("@R14" + "\n");
+        fileWriter.write("D=M" + "\n");
+        fileWriter.write("@ARG" + "\n");
+        fileWriter.write("M=D" + "\n");
+        //LCL = SP
+        fileWriter.write("@SP" + "\n");
+        fileWriter.write("D=M" + "\n");
+        fileWriter.write("@LCL" + "\n");
+        fileWriter.write("M=D" + "\n");
+        //goto f
+        fileWriter.write("@" + function + "\n");
+        fileWriter.write("0;JMP" + "\n");
+        lineNum += 18;
+
+    }
+    private void pushPointer(String pointer) throws Exception{
+        fileWriter.write("@" + pointer + "\n");
+        fileWriter.write("D=M" + "\n");
+        fileWriter.write("@SP" + "\n");
+        fileWriter.write("A=M" + "\n");
+        fileWriter.write("M=D" + "\n");
+        fileWriter.write("@SP" + "\n");
+        fileWriter.write("M=M+1" + "\n");
     }
     public void close() throws Exception{
         fileWriter.close();

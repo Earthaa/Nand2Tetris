@@ -28,7 +28,8 @@ public class Parser {
             return CommandType.C_COMMENT;
 
         String firstPart = currrentCommand.split("//")[0];
-        currrentCommand = firstPart;//Ignore comment text behind
+        currrentCommand = firstPart.trim();//Ignore comment text behind
+
         String type = firstPart.split(" ")[0];
         if(firstPart.equals("add") || firstPart.equals("sub") || firstPart.equals("neg") ||
                 firstPart.equals("eq") || firstPart.equals("lt") || firstPart.equals("and") ||
