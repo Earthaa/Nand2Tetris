@@ -27,9 +27,9 @@ public class Parser {
         if(currrentCommand.length() == 0 ||(currrentCommand.charAt(0) == '/' && currrentCommand.charAt(1) == '/'))
             return CommandType.C_COMMENT;
 
-        String firstPart = currrentCommand.split("//")[0];
+        String firstPart = currrentCommand.split("//")[0].trim();
         currrentCommand = firstPart;//Ignore comment text behind
-        String type = firstPart.split(" ")[0];
+        String type = firstPart.split(" ")[0].trim();
         if(firstPart.equals("add") || firstPart.equals("sub") || firstPart.equals("neg") ||
                 firstPart.equals("eq") || firstPart.equals("lt") || firstPart.equals("and") ||
                 firstPart.equals("or") || firstPart.equals("not") || firstPart.equals("gt"))
