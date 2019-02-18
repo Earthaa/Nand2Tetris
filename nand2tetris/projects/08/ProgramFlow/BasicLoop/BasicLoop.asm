@@ -6,7 +6,7 @@ A=M
 M=D
 @SP
 M=M+1
-// pop local 0         
+// pop local 0
 @SP
 M=M-1
 @LCL
@@ -85,7 +85,7 @@ A=M
 M=D+M
 @SP
 M=M+1
-// pop local 0	        
+// pop local 0
 @SP
 M=M-1
 @LCL
@@ -93,7 +93,7 @@ A=M
 D=A
 @R13
 M=D
-@0	
+@0
 D=A
 @95
 D=D-1;JLT
@@ -148,7 +148,7 @@ A=M
 M=M-D
 @SP
 M=M+1
-// pop argument 0      
+// pop argument 0
 @SP
 M=M-1
 @ARG
@@ -192,7 +192,7 @@ A=M
 M=D
 @SP
 M=M+1
-// if-goto LOOP_START  
+// if-goto LOOP_START
 @SP
 M=M-1
 A=M

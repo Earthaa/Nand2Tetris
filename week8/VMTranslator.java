@@ -29,7 +29,7 @@ public class VMTranslator {
         //Directory
         if(splitFileName.length == 1) {
             String[] tmpname = args[0].split("/");
-            WriteCode writer = new WriteCode(tmpname[tmpname.length - 1],"None");
+            WriteCode writer = new WriteCode(args[0] + "/" + tmpname[tmpname.length - 1],"None");
             //Write Sys.vm
             writer.writeInitialize();
             try{
